@@ -20,14 +20,15 @@ int main() {
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
   float vertices[] = {
-    0.5f, 0.5f, 0.0f, // top right
-    0.5f, -0.5f, 0.0f, // bottom right
-    -0.5f, -0.5f, 0.0f, // bottom left
-    -0.5f, 0.5f, 0.0f // top left
+    -0.5, 0.0f, 0.0f, // top right
+    -0.5, 0.5, 0.0f, // bottom right
+    0.0f, 0.0f, 0.0f, // shared
+    0.5f, 0.5f, 0.0f, // bottom left
+    0.5f, 0.0f, 0.0f // top left
   };
   unsigned int indices[] = {
-    0, 1, 3, // first triangle
-    1, 2, 3 // second triangle
+    0, 1, 2, // first triangle
+    2, 3, 4 // second triangle
   };
 
   unsigned int VBO, VAO, EBO;
