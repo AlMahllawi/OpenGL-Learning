@@ -4,6 +4,16 @@
         "glfw",
         "GLFW",
         "OPENGL",
+        "Programiv",
+        "Shaderiv",
         "Wwindow"
-    ]
+    ],
+    "glsllint.additionalStageAssociations": {
+        ".fs": "frag",
+        ".vs": "vert"
+    },
+    "catppuccin-noctis-icons.files.associations": {
+        "*.fs": "expressive-code",
+        "*.vs": "expressive-code"
+    }
 }

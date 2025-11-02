@@ -3,6 +3,7 @@
         "franneck94.vscode-c-cpp-dev-extension-pack",
         "kylinideteam.cppdebug",
         "llvm-vs-code-extensions.vscode-clangd",
-        "ms-vscode.cmake-tools"
+        "ms-vscode.cmake-tools",
+        "dtoplak.vscode-glsllint"
     ]
 }
