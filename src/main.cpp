@@ -54,6 +54,7 @@ int main() {
   glEnableVertexAttribArray(0);
 
   Shader ourShader("src/shaders/shader.vs", "src/shaders/shader.fs");
+  Shader ourShader2("src/shaders/shader.vs", "src/shaders/shader2.fs");
 
   while (!glfwWindowShouldClose(window)) {
     glClearColor(0.2f, 0.2f, 0.3f, 1.0f);
@@ -62,6 +63,7 @@ int main() {
     ourShader.use();
     glBindVertexArray(VAO1);
     glDrawArrays(GL_TRIANGLES, 0, 3);
+    ourShader2.use();
     glBindVertexArray(VAO2);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 
