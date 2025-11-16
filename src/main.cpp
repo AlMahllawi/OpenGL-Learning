@@ -19,21 +19,38 @@ int main() {
   gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
   glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-  float vertices[] = {
-    -0.5f, -0.5f, 0.0f,
-    0.5f, -0.5f, 0.0f,
-    0.0f, 0.5f, 0.0f
+  float triangle1Vertices[] = {
+    -0.5, 0.0f, 0.0f,
+    -0.5, 0.5, 0.0f,
+    0.0f, 0.0f, 0.0f
+  };
+  float triangle2Vertices[] = {
+    0.0f, 0.0f, 0.0f,
+    0.5f, 0.5f, 0.0f,
+    0.5f, 0.0f, 0.0f
   };
 
-  unsigned int VBO, VAO;
-  glGenVertexArrays(1, &VAO);
-  glGenBuffers(1, &VBO);
+  unsigned int VBO1, VAO1, VBO2, VAO2;
+  glGenVertexArrays(1, &VAO1);
+  glGenBuffers(1, &VBO1);
 
-  glBindVertexArray(VAO);
-  glBindBuffer(GL_ARRAY_BUFFER, VBO);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+  glBindVertexArray(VAO1);
+  glBindBuffer(GL_ARRAY_BUFFER, VBO1);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(triangle1Vertices),
+               triangle1Vertices, GL_STATIC_DRAW);
 
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
+  glEnableVertexAttribArray(0);
+
+  glGenVertexArrays(1, &VAO2);
+  glGenBuffers(1, &VBO2);
+
+  glBindVertexArray(VAO2);
+  glBindBuffer(GL_ARRAY_BUFFER, VBO2);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(triangle2Vertices),
+               triangle2Vertices, GL_STATIC_DRAW);
+
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
   glEnableVertexAttribArray(0);
 
   Shader ourShader("src/shaders/shader.vs", "src/shaders/shader.fs");
@@ -43,7 +60,9 @@ int main() {
     glClear(GL_COLOR_BUFFER_BIT);
 
     ourShader.use();
-    glBindVertexArray(VAO);
+    glBindVertexArray(VAO1);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glBindVertexArray(VAO2);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 
     glfwSwapBuffers(window);
