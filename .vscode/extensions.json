@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "franneck94.vscode-c-cpp-dev-extension-pack",
+        "kylinideteam.cppdebug",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.cmake-tools"
+    ]
+}

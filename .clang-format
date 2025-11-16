@@ -1,0 +1,10 @@
+Language: Cpp
+BasedOnStyle: LLVM
+SortIncludes: true
+IncludeCategories:
+  - Regex:           '^<glad/glad.h>'
+    Priority:        1
+  - Regex:           '^<GLFW/glfw3.h>'
+    Priority:        2
+  - Regex:           '.*'
+    Priority:        3

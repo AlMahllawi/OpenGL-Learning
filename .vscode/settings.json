@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": false,
+    "cSpell.words": [
+        "glfw",
+        "GLFW",
+        "OPENGL",
+        "Wwindow"
+    ]
+}
