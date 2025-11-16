@@ -1,6 +1,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "engine/shader.h"
+#include <cmath>
 
 using namespace std;
 
@@ -43,6 +44,7 @@ int main() {
     glClear(GL_COLOR_BUFFER_BIT);
 
     ourShader.use();
+    ourShader.set4Floats("ourColor", 0.0f, float(sin(glfwGetTime()) / 2.0f) + 0.5f, 0.0f, 1.0f);
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
 
